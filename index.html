@@ -30,6 +30,39 @@
       } 
 
 
+      .n-btn {
+          background: red;
+          border: none;
+          width: 30px;
+          height: 30px;
+          border-radius: 20px;
+          margin: 0 2%;
+          color: white;
+          transition: transform .4s ease-in-out, opacity .3s ease-in-out;
+          opacity: 0;
+          z-index: 9;
+          cursor: pointer;
+      }
+      #table tbody tr .n-btn:hover {
+          opacity: 1 !important;
+          transform: scale(1.1) !important;
+      }
+      #table tbody tr:hover .n-btn {
+          opacity: .5;
+
+      }
+      .delete-btn {
+          transform: translateX(50px) rotate(160deg) scale(.8);
+      }
+      .edit-btn {
+          transform: translateX(-50px) rotate(-160deg) scale(.8);
+          sfs: dfsf !important;
+      }
+      #table tbody tr:hover .delete-btn, #table tbody tr:hover .edit-btn  {
+          transform: translateX(0);    
+      }
+
+
     </style>
 
 
@@ -142,14 +175,14 @@
             success: function(data){
               $('#table tbody').html(data);
               eventToCars();
+              tabaleBTNS();
             },
 
             error: function(data) {
               CRUDdb('alert-danger', 'ERROR!!! Something goes wrong on the Table list');
             }
 
-            
-
+   
           });
         }
         showData();
@@ -225,6 +258,34 @@
             CRUDdb('alert-danger', 'ERROR!!! Something goes wrong :(');
           }
         });
+
+
+
+
+
+        function tabaleBTNS() { 
+
+
+          $('.n-btn.delete-btn').click(function(){
+
+            console.log('delete-btn clicked');
+
+            $.ajax({
+              url: '',
+
+            })
+
+          });
+
+          $('.n-btn.edit-btn').click(function(){
+
+          console.log('edit-btn clicked');
+
+          });
+
+          
+
+        }
 
 
 
