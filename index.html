@@ -28,20 +28,20 @@
             width: 30%;
         }
       } 
-
-
       .n-btn {
-          background: red;
+          background: transparent;
+          color: transparent;
           border: none;
-          width: 30px;
-          height: 30px;
-          border-radius: 20px;
-          margin: 0 2%;
-          color: white;
+          width: 15px;
+          height: 15px;
+          margin: 0px 5px;
           transition: transform .4s ease-in-out, opacity .3s ease-in-out;
           opacity: 0;
           z-index: 9;
           cursor: pointer;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: contain;
       }
       #table tbody tr .n-btn:hover {
           opacity: 1 !important;
@@ -49,17 +49,80 @@
       }
       #table tbody tr:hover .n-btn {
           opacity: .5;
-
       }
       .delete-btn {
-          transform: translateX(50px) rotate(160deg) scale(.8);
+        transform: translateX(-15px) rotate(160deg) scale(.8);
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMyA4djE2aDE4di0xNmgtMTh6bTUgMTJjMCAuNTUyLS40NDggMS0xIDFzLTEtLjQ0OC0xLTF2LThjMC0uNTUyLjQ0OC0xIDEtMXMxIC40NDggMSAxdjh6bTUgMGMwIC41NTItLjQ0OCAxLTEgMXMtMS0uNDQ4LTEtMXYtOGMwLS41NTIuNDQ4LTEgMS0xczEgLjQ0OCAxIDF2OHptNSAwYzAgLjU1Mi0uNDQ4IDEtMSAxcy0xLS40NDgtMS0xdi04YzAtLjU1Mi40NDgtMSAxLTFzMSAuNDQ4IDEgMXY4em00LTE1LjM3NWwtLjQwOSAxLjk1OC0xOS41OTEtNC4wOTkuNDA5LTEuOTU4IDUuNTI4IDEuMDk5Yy44ODEuMTg1IDEuODItLjc0MiAyLjAwNC0xLjYyNWw1LjIwNCAxLjA4NmMtLjE4NC44ODIuMzA3IDIuMTA3IDEuMTg5IDIuMjkxbDUuNjY2IDEuMjQ4eiIvPjwvc3ZnPg==);
+
       }
       .edit-btn {
-          transform: translateX(-50px) rotate(-160deg) scale(.8);
-          sfs: dfsf !important;
+          transform: translateX(-25px) rotate(-160deg) scale(.8);
+          background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTQuMDc4IDQuMjMybC0xMi42NCAxMi42MzktMS40MzggNy4xMjkgNy4xMjctMS40MzggMTIuNjQxLTEyLjY0LTUuNjktNS42OXptLTEwLjM2OSAxNC44OTNsLS44NS0uODUgMTEuMTQxLTExLjEyNS44NDkuODQ5LTExLjE0IDExLjEyNnptMi4wMDggMi4wMDhsLS44NS0uODUgMTEuMTQxLTExLjEyNS44NS44NS0xMS4xNDEgMTEuMTI1em0xOC4yODMtMTUuNDQ0bC0yLjgxNiAyLjgxOC01LjY5MS01LjY5MSAyLjgxNi0yLjgxNiA1LjY5MSA1LjY4OXoiLz48L3N2Zz4=);
+          transition-delay: .1s;
       }
       #table tbody tr:hover .delete-btn, #table tbody tr:hover .edit-btn  {
           transform: translateX(0);    
+      }
+
+      #table tbody tr td:first-child {
+        width: 10%;
+      }
+      #table tbody tr td:nth-child(2) {
+          /* width: 80%; */
+      }
+      #table tbody tr td:nth-child(3), #table thead tr th:nth-child(3) {
+          /* width: 10%; */
+          padding: .75rem 0;
+      }
+      #table tbody tr td .cars {
+        margin: 0;
+        position: relative;
+      }
+      #table tbody tr td .cars:focus {
+          background: rgba(0, 0, 0, 0.08);
+          outline: none;  
+      }
+      #table tbody tr td .cars:before {
+          content: "";
+          width: 15px;
+          height: 15px;
+          background: rgba(0, 0, 0, 0);
+          position: absolute;
+          background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTQuMDc4IDQuMjMybC0xMi42NCAxMi42MzktMS40MzggNy4xMjkgNy4xMjctMS40MzggMTIuNjQxLTEyLjY0LTUuNjktNS42OXptLTEwLjM2OSAxNC44OTNsLS44NS0uODUgMTEuMTQxLTExLjEyNS44NDkuODQ5LTExLjE0IDExLjEyNnptMi4wMDggMi4wMDhsLS44NS0uODUgMTEuMTQxLTExLjEyNS44NS44NS0xMS4xNDEgMTEuMTI1em0xOC4yODMtMTUuNDQ0bC0yLjgxNiAyLjgxOC01LjY5MS01LjY5MSAyLjgxNi0yLjgxNiA1LjY5MSA1LjY4OXoiLz48L3N2Zz4=);
+          background-position: center;
+          background-size: contain;
+          left: -15px;
+          top: 5px;
+          opacity: 0;
+          transform: translateX(15px) rotate(45deg);
+          transition: opacity .3s ease-in-out, transform .3s ease-in-out;
+      }
+      #table tbody tr td .cars:focus:before {
+          opacity: .5;
+          transform: scale(1);
+      }
+      tr.update-div td {
+          position: absolute;
+          width: 100% !important;
+          padding: 0;
+      }
+
+      tr.update-div {
+          display: none;
+      }
+
+      tr.update-div #update-car-todb {
+          max-width: 100%;
+      }
+      tr.update-div #update-car-todb #update-field {
+          width: 80%;
+      }
+
+      tr.update-div #update-car-todb input[type="submit"] {
+          width: 20%;
+      }
+      #table tbody tr {
+          position: relative;
       }
 
 
@@ -85,7 +148,9 @@
           <h6 id="result" class="mb-2 text-left"></h6>
         </div>
       </div>
-      
+
+
+
 
 
       <div class="row"><br><br></div>
@@ -113,6 +178,7 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Cars name</th>
+                <th></th><th></th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -192,8 +258,8 @@
         function eventToCars(){
           $('a.cars').click(function(e){
             e.preventDefault();
-            alert(e);
-            console.log(e);
+            //alert(e);
+            //console.log(e);
           });
         }
         
@@ -238,7 +304,7 @@
 
 
 
-        // Add to  DB 
+        // Add to DB 
         $('#add-car-todb').submit(function(e){
 
           e.preventDefault();
@@ -268,18 +334,64 @@
 
           $('.n-btn.delete-btn').click(function(){
 
-            console.log('delete-btn clicked');
+            var id = $(this).attr('data-id');
+            //console.log('delete-btn ID ' + id + ' clicked');
 
             $.ajax({
-              url: '',
+              url: 'delete.php',
+              data: { delete:id },
+              type: 'POST',
+              
+              success: function(data){
+                if(!data.error){
+                  //alert('data');
+                  showData();
+                }
+              },
+              error: function(data) {
+                alert('ERORR delete-btn ID ' + id + ' clicked');
+              }
 
-            })
+            });
 
           });
 
+          
+          /*
           $('.n-btn.edit-btn').click(function(){
-
           console.log('edit-btn clicked');
+          });
+          */
+
+
+
+
+          $('#table tbody tr td .cars').on( "blur", function(){
+
+            var val = $(this).text();
+            var id  = $(this).attr('data-id');
+
+
+            $.ajax({
+              url: 'update.php',
+              data: { 
+                id:id,
+                val:val
+              },
+              type: 'POST',
+              
+              success: function(data){
+                if(!data.error){
+                  showData();
+                }
+              },
+              error: function(data) {
+                alert('ERORR Update car No.' + id + 'failed' );
+              }
+
+            });
+
+
 
           });
 

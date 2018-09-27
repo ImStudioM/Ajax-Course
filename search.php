@@ -7,7 +7,7 @@ if ($conaction) {
     echo 'YESSS is conatcted!!!!';
 }*/
 
-$search = $_POST['key'];
+$search = mysqli_real_escape_string($conaction, $_POST['key']);
 
 if (!empty($search)){
 
