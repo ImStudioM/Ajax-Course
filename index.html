@@ -334,25 +334,32 @@
 
           $('.n-btn.delete-btn').click(function(){
 
+
+
             var id = $(this).attr('data-id');
+            var carName = $(this).attr('data-car');
             //console.log('delete-btn ID ' + id + ' clicked');
 
-            $.ajax({
-              url: 'delete.php',
-              data: { delete:id },
-              type: 'POST',
-              
-              success: function(data){
-                if(!data.error){
-                  //alert('data');
-                  showData();
-                }
-              },
-              error: function(data) {
-                alert('ERORR delete-btn ID ' + id + ' clicked');
-              }
+            var result = confirm('Are you sure you want to delete '+ carName +'?');
+            if (result) {
 
-            });
+              $.ajax({
+                url: 'delete.php',
+                data: { delete:id },
+                type: 'POST',
+                
+                success: function(data){
+                  if(!data.error){
+                    //alert('data');
+                    showData();
+                  }
+                },
+                error: function(data) {
+                  alert('ERORR delete-btn ID ' + id + ' clicked');
+                }
+
+              });
+          }
 
           });
 

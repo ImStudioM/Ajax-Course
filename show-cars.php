@@ -17,7 +17,7 @@ while ($row = mysqli_fetch_array($query_car_info)){
 
    echo '<td>'. $row["id"] .'</td>';
    echo '<td><p contenteditable="true" class="cars" data-id="'. $row["id"] .'">'. $row["cars"] . '</p></td>' ;
-   echo '<td><button class="n-btn delete-btn" data-id="'. $row["id"] .'">X</button>';
+   echo '<td><button class="n-btn delete-btn" data-id="'. $row["id"] .'" data-car="'. $row["cars"] . '">X</button>';
    echo '</tr>';
 }
 
